@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 device='cuda' if torch.cuda.is_available() else 'cpu'
 
 #Performing data augumentation to increase accuracy
-transformTrain=v2.Compose([v2.RandomResizedCrop(size=(32,32), scale=(0.8,1.0), antialias=True),
+transformTrain=v2.Compose([v2.RandomResizedCrop(size=(32,32), scale=(0.75,1.0), antialias=True),
                       v2.RandomHorizontalFlip(p=0.5),
                       v2.PILToTensor(),
                       v2.ToDtype(torch.float32, scale=True),
@@ -60,26 +60,26 @@ model=nn.Sequential(
                     nn.Conv2d(16,32,3,padding='same'),
                     nn.ReLU(),
                     nn.MaxPool2d(2,2),
-                    nn.Dropout(0.1),
+                    nn.Dropout(0.2),
 
                     nn.Conv2d(32,64,3,padding='same'),
                     nn.ReLU(),
                     nn.Conv2d(64,64,3,padding='same'),
                     nn.ReLU(),
                     nn.MaxPool2d(2,2),
-                    nn.Dropout(0.1),
+                    nn.Dropout(0.2),
 
                     nn.Conv2d(64,128,3,padding='same'),
                     nn.ReLU(),
                     nn.Conv2d(128,128,3,padding='same'),
                     nn.ReLU(),
                     nn.MaxPool2d(2,2),
-                    nn.Dropout(0.1),
+                    nn.Dropout(0.2),
 
                     nn.Flatten(),
 
                     nn.Linear(4*4*128,256),
-                    nn.Dropout(0.1),
+                    nn.Dropout(0.2),
                     nn.Linear(256,128),
                     nn.Linear(128,64),
                     nn.Linear(64,10),
@@ -90,8 +90,8 @@ lossFn=nn.CrossEntropyLoss()
 optimizer=optim.SGD(model.parameters(),lr=0.1)
 scheduler=optim.lr_scheduler.ReduceLROnPlateau(optimizer,mode='min',patience=4)
 
-#Setting an optimal value for number of epochs 
-epochs=43
+#The loss hits a minima at around 45 epochs but can be run for much longer due to the nature of the learning rate cheduler which automatically reduces the learning rate when the loss doesen't decrease which prevents the model from overfitting.
+epochs=45
 
 #Iterating through the training and test dataloaders
 for i in range(epochs):
