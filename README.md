@@ -1,6 +1,6 @@
 # CIFAR10
 
-The CIFAR10 problem is widely considered to be a great starting point for those who are getting into the field of Machine Learning. This is my solution to the problem through which I managed to achieve an accuracy of 83.43% on the testing dataset.
+The CIFAR10 problem is widely considered to be a great starting point for those who are getting into the field of Machine Learning. This is my solution to the problem through which I managed to achieve an accuracy of 83.78% on the testing dataset.
 
 Alongside the traditional technique of using of using Convolutional Neural Networks (CNNs) a number of more advanced techniques such as data augumentation, dropout, and a learning rate scheduler were used to enhance the accuracy achieved by the model.
 
