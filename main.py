@@ -90,7 +90,7 @@ lossFn=nn.CrossEntropyLoss()
 optimizer=optim.SGD(model.parameters(),lr=0.1)
 scheduler=optim.lr_scheduler.ReduceLROnPlateau(optimizer,mode='min',patience=4)
 
-#The loss hits a minima at around 45 epochs but can be run for much longer due to the nature of the learning rate cheduler which automatically reduces the learning rate when the loss doesen't decrease which prevents the model from overfitting.
+#The loss hits a minima at around 45 epochs but can be run for much longer due to the nature of the learning rate scheduler
 epochs=45
 
 #Iterating through the training and test dataloaders
