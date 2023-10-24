@@ -1,7 +1,6 @@
 #Importing necessary libraries
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 from torch.utils.data import DataLoader
 import torch.optim as optim
@@ -9,8 +8,6 @@ import torch.optim as optim
 import torchvision
 from torchvision import datasets
 import torchvision.transforms.v2 as v2
-
-import matplotlib.pyplot as plt
 
 #Making the code device agnostic
 device='cuda' if torch.cuda.is_available() else 'cpu'
