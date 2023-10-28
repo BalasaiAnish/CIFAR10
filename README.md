@@ -1,6 +1,6 @@
 # CIFAR10
 
-## The problem
+## The Problem
 CIFAR-10 is a classic machine learning problem which is considered a good place for beginners of machine lerning to solve. Creating a simple model is relatively straightforward however a number of more advanced techniques can be implemented to enhance the accuracy of the model. Most state of the art models are able to achieve accuracies of over 95%. The dataset for CIFAR10 is freely available at https://www.cs.toronto.edu/~kriz/cifar.html
 
 ## PyTorch
